@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./Components/style.css";
 import { AnimeList } from "./Components/AnimeList";
+import { AnimeInfo } from "./Components/AnimeInfo";
 
 function App() {
   const [search, setSearch] = useState("Kaguya-sama");
   const [animeData, setAnimeData] = useState();
+  const [animeInfo, setAnimeInfo] = useState();
 
   const getData = async () => {
     const res = await fetch(
@@ -33,11 +35,13 @@ function App() {
       </header>
 
       <div className="container">
-        <div className="animeInfo"></div>
+        <div className="animeInfo">
+          {animeInfo && <AnimeInfo animeInfo={animeInfo} />}
+        </div>
         <div className="anime-row">
           <h2 className="text-heading">Anime</h2>
           <div className="row">
-            <AnimeList />
+            <AnimeList animelist={animeData} setAnimeInfo={setAnimeInfo} />
           </div>
         </div>
       </div>

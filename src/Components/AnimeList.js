@@ -1,14 +1,23 @@
-import React from 'react';
+import React from "react";
 
-export const AnimeList = () => {
+export const AnimeList = ({ animelist,setAnimeInfo }) => {
   return (
     <>
-      <div className="card">
-        <img src="https://cdn.myanimelist.net/images/anime/1160/122627.jpg" alt="animeImage"></img>
-        <div className="anime-info">
-          <h4>Kaguya-sama</h4>
-        </div>
-      </div>
+      {animelist
+        ? animelist.map((anime, index) => {
+            return (
+              <div className="card" key={index} onClick={()=>{setAnimeInfo(anime)}}>
+                <img
+                  src={anime.images.jpg.large_image_url}
+                  alt={anime.title}
+                ></img>
+                <div className="anime-info">
+                  <h4>{anime.title}</h4>
+                </div>
+              </div>
+            );
+          })
+        : "Not Found"}
     </>
   );
-}
+};
