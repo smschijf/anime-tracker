@@ -11,6 +11,9 @@ header {
   padding-bottom: 50px;
   row-gap: 30px;
   z-index: 12;
+  width: 100%;
+  position: fixed;
+  top: 0;
 }
 
 header h1 {
@@ -47,7 +50,7 @@ header .search-box input::placeholder {
 
 .container {
   width: 100%;
-  margin: 100px auto;
+  margin: 300px auto 100px auto;
   display: flex;
 }
 
@@ -58,6 +61,7 @@ header .search-box input::placeholder {
   left: 0;
   top: 0;
   z-index: 11;
+  background-color: white;
 }
 
 .anime-row {
@@ -91,4 +95,41 @@ header .search-box input::placeholder {
   width: 100%;
   height: 80%;
   object-fit: cover;
+}
+
+.anime-content {
+  padding: 40px;
+  margin: 240px 0;
+}
+
+.anime-content img {
+  width: 150px;
+  height: 210px;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  padding: 1rem;
+  background-color: #313131d0;
+  border-radius: 8px 8px 0 0;
+  text-align: justify;
+  opacity: 0;
+  transition: 0.5s;
+  color: white;
+}
+
+.anime-info:hover .overlay{
+  opacity: 1;
+  height: 90%;
+}
+
+.overlay .synopsis {
+  width: 100%;
+  height: 80%;
+  padding: 1rem;
+  overflow: auto;
 }
